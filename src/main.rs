@@ -112,9 +112,7 @@ where
     let mut next_value = move || {
         let mut rng = rand::thread_rng();
         // sample_clock = (sample_clock + 1.0) % sample_rate;
-        let max = 1.0_f32;
-        let min = -1.0_f32;
-        rng.gen_range(min..=max)
+        rng.gen_range(-1.0_f32..=1.0_f32)
     };
 
     let err_fn = |err| eprintln!("an error occurred on stream: {}", err);
