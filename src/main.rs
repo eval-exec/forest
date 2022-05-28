@@ -104,18 +104,16 @@ pub fn run<T>(
 where
     T: cpal::Sample,
 {
-    let sample_rate = config.sample_rate.0 as f32;
+    // let sample_rate = config.sample_rate.0 as f32;
     let channels = config.channels as usize;
 
     // Produce a sinusoid of maximum amplitude.
-    let mut sample_clock = 0f32;
+    // let mut sample_clock = 0f32;
     let mut next_value = move || {
         let mut rng = rand::thread_rng();
-        sample_clock = (sample_clock + 1.0) % sample_rate;
-        let s = sample_clock * 111200.0 * 2.0 * std::f32::consts::PI / sample_rate;
-        // s.sin();
-        let max = 1.0 as f32;
-        let min = -1.0 as f32;
+        // sample_clock = (sample_clock + 1.0) % sample_rate;
+        let max = 1.0_f32;
+        let min = -1.0_f32;
         rng.gen_range(min..=max)
     };
 
